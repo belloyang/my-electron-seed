@@ -10,3 +10,18 @@ developing Electron applications.
 3. Run `npm run electron` to start the dev server and open Electron.
 
 Note this is a very basic project just to illustrate how the Electron Builder can be used.
+
+## Recommend Using yarn
+
+### Quick Start
+
+```
+yarn
+```
+```
+yarn install
+```
+```
+yarn run electron
+```
+you may need `sudo` if you are working on a Debian/Ubuntu system.
