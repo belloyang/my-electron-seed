@@ -1,17 +1,26 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 const isDevMode = process.execPath.match(/[\\/]electron/);
 
+let package = require('./package.json');
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:4200');
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, `dist/${package.name}/index.html`),
+    protocol: 'file',
+    slashes: true
+  }));
+
+  //mainWindow.loadURL(`file://${__dirname}/dist/electron-seed/index.html`);
 
   
   // Open the DevTools.
